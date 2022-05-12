@@ -1,5 +1,5 @@
 
-#ifndef _AC_ARGS_H
+#ifndef AC_ARGS_H
 #define AC_ARGS_H
 
 #include <stdio.h>
