@@ -3,11 +3,13 @@ set(TARGET_NAME ${PROJECT_NAME}-JitteryTimers)
 # add the executable
 add_executable(${TARGET_NAME}
     "include/ac_args.h"
-    "include/ac_timing.h"
     "include/ac_file.h"
+    "include/ac_mock.h"
+    "include/ac_timing.h"
     "src/ac_args.c"
-    "src/ac_timing.c"
     "src/ac_file.c"
+    "src/ac_mock.c"
+    "src/ac_timing.c"
     "src/main.c")
 
 # include directory

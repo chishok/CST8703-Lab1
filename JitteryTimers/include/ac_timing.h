@@ -77,4 +77,12 @@ uint64_t ac_timer_get_elapsed_usec(AcTimer *timer);
  */
 int ac_timing_get_timestamp(char *restrict timestamp, const size_t size);
 
+/**
+ * @brief Delay for a given amount of time
+ *
+ * @param duration Duration of delay in seconds.
+ * @return         Result of clock_nanosleep
+ */
+int ac_timing_delay_seconds(double duration);
+
 #endif

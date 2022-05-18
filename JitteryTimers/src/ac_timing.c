@@ -101,3 +101,12 @@ int ac_timing_get_timestamp(char *restrict timestamp, const size_t size)
     }
     return (len == 0 ? EMSGSIZE : 0);
 }
+
+int ac_timing_delay_seconds(double duration)
+{
+    // add time
+    struct timespec ts;
+    ts.tv_sec = (time_t)duration;
+    ts.tv_nsec = (long)((duration - ((double)ts.tv_sec)) * AC_GIGA);
+    return clock_nanosleep(CLOCK_MONOTONIC, 0, &ts, NULL);
+}
