@@ -59,7 +59,7 @@ static const char *ac_thread_policy_string(const int policy)
  *
  * @param priority Thread priority.
  */
-static void ro_thread_set_rt_print_info(const int priority)
+static void ac_thread_set_rt_print_info(const int priority)
 {
     // set realtime scheduler priority
     pthread_t thread_id = pthread_self();
@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
      */
 
     // set priority and print process info
-    ro_thread_set_rt_print_info(args.priority);
+    ac_thread_set_rt_print_info(args.priority);
 
     // create timer
     AcTimer timer = ac_timer_create();
@@ -165,6 +165,8 @@ int main(int argc, char *argv[])
          */
 
         // Timed loop real-time processing happens here
+        // mock processing time between 90 and 130 microseconds
+        ac_mock_delay(&seed, 90.0e-6, 130.0e-6);
 
         // save result to data log
         data_usec[idx] = ac_timer_get_elapsed_usec(&timer);

@@ -34,6 +34,11 @@ typedef struct AcTimer
      *
      */
     struct timespec elapsed;
+    /**
+     * @brief System time (epoch)
+     *
+     */
+    struct timespec real;
 } AcTimer;
 
 /**
@@ -50,7 +55,7 @@ AcTimer ac_timer_create();
  * @param step_size_usec Step size in microseconds
  * @return 0 on success, error code otherwise.
  */
-int ac_timer_start(AcTimer *timer, const uint32_t step_size_usec);
+int ac_timer_start(AcTimer *timer, uint32_t step_size_usec);
 
 /**
  * @brief Advance target time by step size and sleep until target.
@@ -75,6 +80,14 @@ uint64_t ac_timer_get_elapsed_usec(AcTimer *timer);
  * @param size Size of timestamp string available for write.
  * @return 0 on success, error code otherwise.
  */
-int ac_timing_get_timestamp(char *restrict timestamp, const size_t size);
+int ac_timing_get_timestamp(char *timestamp, const size_t size);
+
+/**
+ * @brief Delay for a given amount of time
+ *
+ * @param duration Duration of delay in seconds.
+ * @return         Result of clock_nanosleep
+ */
+int ac_timing_delay_seconds(double duration);
 
 #endif

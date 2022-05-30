@@ -7,7 +7,7 @@
 
 #include "ac_file.h"
 
-int ac_file_write(const char *restrict path, const void *restrict data, const size_t data_size)
+int ac_file_write(const char *path, const void *data, const size_t data_size)
 {
     FILE *fptr = NULL;
 
