@@ -90,4 +90,12 @@ int ac_timing_get_timestamp(char *timestamp, const size_t size);
  */
 int ac_timing_delay_seconds(double duration);
 
+/**
+ * @brief Delay for a given amount of time
+ *
+ * @param duration Duration of delay in seconds.
+ * @return         Result of clock_nanosleep
+ */
+int ac_timing_delay_seconds(double duration);
+
 #endif
